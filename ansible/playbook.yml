@@ -1,0 +1,13 @@
+---
+- hosts: bastion
+  become: true
+  tasks:
+    - name: Update and install nginx
+      yum:
+        name: nginx
+        state: present
+    - name: Enable and start nginx
+      service:
+        name: nginx
+        state: started
+        enabled: true

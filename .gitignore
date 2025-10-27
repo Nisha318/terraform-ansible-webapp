@@ -1,0 +1,19 @@
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+crash.log
+
+# Ansible
+*.retry
+
+# SSH Keys (do not commit private keys)
+*.pem
+*.key
+*.pub
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
