@@ -1,2 +1,2 @@
 [bastion]
-<BASTION_PUBLIC_IP> ansible_user=ec2-user ansible_ssh_private_key_file=~/.ssh/nisha-webapp
+18.208.228.117 ansible_user=ec2-user ansible_ssh_private_key_file=~/.ssh/nisha-webapp
