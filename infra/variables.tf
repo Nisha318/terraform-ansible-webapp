@@ -48,3 +48,15 @@ variable "key_name" {
   type = string
   default="nisha-webapp"
 }
+
+variable "admin_cidr" {
+  description = "Your admin IP or VPN CIDR allowed to SSH to bastion"
+  type        = string
+}
+
+variable "web_instance_type" {
+  description = "Instance type for web servers"
+  type        = string
+  default     = "t3.micro"
+}
+
