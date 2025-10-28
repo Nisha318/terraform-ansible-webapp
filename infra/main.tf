@@ -34,13 +34,13 @@ locals {
 }
 
 resource "aws_instance" "web" {
-  for_each                     = local.web_subnets
-  ami                          = data.aws_ami.al2023.id
-  instance_type                = var.web_instance_type
-  key_name                     = var.key_name                   # uses your imported EC2 key pair
-  subnet_id                    = each.value                     # AZ-specific private app subnet
-  vpc_security_group_ids       = [aws_security_group.web_sg.id]
-  associate_public_ip_address  = false
+  for_each                    = local.web_subnets
+  ami                         = data.aws_ami.al2023.id
+  instance_type               = var.web_instance_type
+  key_name                    = var.key_name # uses your imported EC2 key pair
+  subnet_id                   = each.value   # AZ-specific private app subnet
+  vpc_security_group_ids      = [aws_security_group.web_sg.id]
+  associate_public_ip_address = false
 
   tags = {
     Name = "${var.project_name}-web-${each.key}"

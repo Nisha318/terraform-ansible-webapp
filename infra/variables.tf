@@ -1,6 +1,6 @@
 variable "project_name" {
-  type = string
-  default="terraform-ansible-webapp"
+  type    = string
+  default = "terraform-ansible-webapp"
 }
 
 variable "region" {
@@ -45,8 +45,8 @@ variable "single_nat_gateway" {
 }
 
 variable "key_name" {
-  type = string
-  default="nisha-webapp"
+  type    = string
+  default = "nisha-webapp"
 }
 
 variable "admin_cidr" {
