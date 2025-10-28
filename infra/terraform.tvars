@@ -12,5 +12,5 @@ single_nat_gateway  = false   # two NATs (one per AZ)
 key_name            = "nisha-webapp"
 
 
-admin_cidr = "136.244.42.75"
+admin_cidr = "136.244.42.75/32"
 
