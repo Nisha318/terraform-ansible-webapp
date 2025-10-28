@@ -35,7 +35,7 @@ resource "aws_instance" "bastion" {
   associate_public_ip_address = true
   key_name                    = var.key_name
   vpc_security_group_ids      = [aws_security_group.bastion_sg.id]
-  tags = { Name = "${var.project_name}-bastion" }
+  tags                        = { Name = "${var.project_name}-bastion" }
 }
 
 # Ansible server (private app AZ1)
@@ -46,7 +46,7 @@ resource "aws_instance" "ansible_server" {
   subnet_id                   = module.vpc.private_subnets[0]
   vpc_security_group_ids      = [aws_security_group.ansible_sg.id]
   associate_public_ip_address = false
-  tags = { Name = "${var.project_name}-ansible-server", Role = "AnsibleServer" }
+  tags                        = { Name = "${var.project_name}-ansible-server", Role = "AnsibleServer" }
 }
 
 # Two web servers, one per private app subnet
@@ -58,12 +58,12 @@ locals {
 }
 
 resource "aws_instance" "web" {
-  for_each                     = local.web_subnets
-  ami                          = data.aws_ami.al2023.id
-  instance_type                = var.web_instance_type
-  key_name                     = var.key_name
-  subnet_id                    = each.value
-  vpc_security_group_ids       = [aws_security_group.web_sg.id]
-  associate_public_ip_address  = false
-  tags = { Name = "${var.project_name}-web-${each.key}", Role = "WebServer" }
+  for_each                    = local.web_subnets
+  ami                         = data.aws_ami.al2023.id
+  instance_type               = var.web_instance_type
+  key_name                    = var.key_name
+  subnet_id                   = each.value
+  vpc_security_group_ids      = [aws_security_group.web_sg.id]
+  associate_public_ip_address = false
+  tags                        = { Name = "${var.project_name}-web-${each.key}", Role = "WebServer" }
 }
