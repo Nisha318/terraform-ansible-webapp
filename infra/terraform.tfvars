@@ -10,7 +10,7 @@ database_subnets = ["10.0.4.0/24", "10.0.5.0/24"]
 enable_nat         = true
 single_nat_gateway = false
 key_name           = "nisha-webapp"
-admin_cidr         = "136.244.42.75/32"
+admin_cidr         = "YOUR-ADMIN-IP-OR-VPN-CIDR"
 
 ansible_instance_type = "t3.micro"
 web_instance_type     = "t3.micro"

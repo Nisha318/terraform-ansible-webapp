@@ -43,7 +43,7 @@ variable "key_name" {
 variable "admin_cidr" {
   description = "Your admin IP or VPN in CIDR format"
   type        = string
-  # example: "136.244.42.75/32"
+  # example: "126.235.45.72/32"
 }
 
 variable "ansible_instance_type" {
